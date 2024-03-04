@@ -5,13 +5,10 @@ from cryptography.fernet import Fernet
 
 pbar = None
 
-if os.path.exists("localhost.pem"):
-    urllib.request.urlretrieve("https://websockets.readthedocs.io/en/stable/_downloads/c350abd2963d053f49c19e58cceced69/localhost.pem","localhost.pem")
-
 def _show_progress(block_num, block_size, total_size):
     global pbar
     if pbar is None:
-        widgets = ["Downloading Python: ",progressbar.Bar(),"",progressbar.Percentage()," ",progressbar.ETA()]
+        widgets = ["Downloading SSL certificate: ",progressbar.Bar(),"",progressbar.Percentage()," ",progressbar.ETA()]
         pbar = progressbar.ProgressBar(maxval=total_size,widgets=widgets,line_breaks = False)
         pbar.start()
 
@@ -21,6 +18,13 @@ def _show_progress(block_num, block_size, total_size):
     else:
         pbar.finish()
         pbar = None
+
+#Installs directory
+
+if os.path.exists("localhost.pem"):
+    urllib.request.urlretrieve("https://websockets.readthedocs.io/en/stable/_downloads/c350abd2963d053f49c19e58cceced69/localhost.pem","localhost.pem",_show_progress)
+    
+
 
 def getfilename():
     name = datetime.datetime.now()
