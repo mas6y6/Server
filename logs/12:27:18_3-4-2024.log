@@ -1,0 +1,12 @@
+[root][12:27:18 PM][INFO]: Server startup initialized
+[root][12:27:18 PM][INFO]: Opening server at "localhost" with the port 19391
+[root][12:27:18 PM][INFO]: Server is online
+[websockets.server][12:28:07 PM][INFO]: connection open
+[websockets.server][12:28:07 PM][ERROR]: connection handler failed
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/websockets/sync/server.py", line 498, in conn_handler
+    handler(connection)
+  File "/Users/marklopezjr./Desktop/Python projects/Websocket Computer Management System/Server/server.py", line 21, in handler
+    print(websocket.ip)
+          ^^^^^^^^^^^^
+AttributeError: 'ServerConnection' object has no attribute 'ip'
